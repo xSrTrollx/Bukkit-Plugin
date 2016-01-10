@@ -3,9 +3,9 @@ package net.eduard.vault;
 
 import net.eduard.eduard_api.EduardAPI;
 import net.eduard.eduard_api.game.item.Item;
-import net.eduard.eduard_api.player.gui.Gui;
-import net.eduard.eduard_api.player.gui.Slot;
-import net.eduard.eduard_api.player.gui.util.GuiType;
+import net.eduard.eduard_api.manager.gui.Gui;
+import net.eduard.eduard_api.manager.gui.Slot;
+import net.eduard.eduard_api.manager.gui.util.GuiType;
 
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -19,7 +19,7 @@ public class Vault extends EduardAPI
 		loja.setKey( new Item(Material.BONE) );
 		loja.addSlot( 5 , new Slot(new Item(Material.DIAMOND)) {
 			
-			public void run(Player p) {
+			public void effect(Player p) {
 				if (p.hasPermission( "loja.teste" )) {
 					Main.economy.depositPlayer( p , 200 );
 					p.sendMessage( "§bVoce vendeu o diamante!" );

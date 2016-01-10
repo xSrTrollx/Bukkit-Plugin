@@ -2,8 +2,8 @@
 package net.eduard.score;
 
 import net.eduard.eduard_api.EduardAPI;
-import net.eduard.eduard_api.player.scoreboard.Scoreboard;
-import net.eduard.eduard_api.time.Timer;
+import net.eduard.eduard_api.manager.scoreboard.Scoreboard;
+import net.eduard.eduard_api.time.timer.Timer;
 
 import org.bukkit.Statistic;
 import org.bukkit.entity.Player;
