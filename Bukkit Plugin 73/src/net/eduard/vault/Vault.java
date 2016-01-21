@@ -4,7 +4,7 @@ package net.eduard.vault;
 import net.eduard.eduard_api.EduardAPI;
 import net.eduard.eduard_api.game.item.Item;
 import net.eduard.eduard_api.manager.gui.Gui;
-import net.eduard.eduard_api.manager.gui.Slot;
+import net.eduard.eduard_api.manager.gui.slot.Slot;
 import net.eduard.eduard_api.manager.gui.util.GuiType;
 
 import org.bukkit.Material;

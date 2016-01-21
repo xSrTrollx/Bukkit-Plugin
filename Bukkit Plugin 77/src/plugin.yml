@@ -1,0 +1,26 @@
+name: Template
+description: Plugin Template
+main: net.eduard.tutorial.Main
+version: 1.0
+authors: [Eduard]
+website: https://www.youtube.com/user/EduTutoriaisHD
+depend: [EduardAPI]
+commands:
+  comando:
+    aliases: [aliases,as,alis]
+    permission: perm.use
+    permission-message: No Permission
+    usage: /<command> [usage]
+    description: Comando Description
+  template.*:
+    default: op
+    description: All permissions from plugin Template
+    children:
+      template.play: true
+      template.teste: true
+  template.play:
+    default: op
+    description: Permission to command /play
+  template.teste:
+    default: op
+    description: Permission to command /teste
