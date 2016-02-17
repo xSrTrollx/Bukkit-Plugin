@@ -1,3 +1,4 @@
+
 package me.eduard.configs;
 
 import java.util.List;
@@ -18,42 +19,53 @@ import org.bukkit.scoreboard.ScoreboardManager;
 public class Main extends JavaPlugin implements Listener {
 
 	public Main main = this;
+
 	public Server server = Bukkit.getServer();
+
 	public ScoreboardManager score = Bukkit.getScoreboardManager();
+
 	public FileConfiguration cf = getConfig();
+
 	public PluginManager pm = Bukkit.getPluginManager();
+
 	public BukkitScheduler sh = Bukkit.getScheduler();
+
 	public CommandSender send = Bukkit.getConsoleSender();
-	public Configs novaConfig = new Configs(this,"NomeQueQuiser.yml");
 
-	public void onLoad() {
+	public Configs novaConfig = new Configs(this, "NomeQueQuiser.yml");
 
-	}
-	public void onEnable() {
-		pm.registerEvents(new Eventos(), this);
-		novaConfig.getConfig().addDefault("Consegui", "Criar outra Config !:D");
-		novaConfig.saveDefault();
-		
-	}
-	
-	public void onDisable() {
-		HandlerList.unregisterAll();
-	}
+	public boolean onCommand(CommandSender sender, Command command, String label,
+		String[] args) {
 
-	public List<String> onTabComplete(CommandSender sender, Command command,
-			String alias, String[] args) {
-		return null;
-	}
-
-	public boolean onCommand(CommandSender sender, Command command,
-			String label, String[] args) {
 		if (!(sender instanceof Player)) {
 			sender.sendMessage("§cApenas para players!");
 			return true;
 		}
-//		Player p = (Player) sender;
-		
-		
+		// Player p = (Player) sender;
+
 		return true;
+	}
+
+	public void onDisable() {
+
+		HandlerList.unregisterAll();
+	}
+
+	public void onEnable() {
+
+		pm.registerEvents(new Eventos(), this);
+		novaConfig.getConfig().addDefault("Consegui", "Criar outra Config !:D");
+		novaConfig.saveDefault();
+
+	}
+
+	public void onLoad() {
+
+	}
+
+	public List<String> onTabComplete(CommandSender sender, Command command,
+		String alias, String[] args) {
+
+		return null;
 	}
 }

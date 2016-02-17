@@ -1,3 +1,4 @@
+
 package me.eduard.listener;
 
 import java.util.List;
@@ -18,44 +19,22 @@ import org.bukkit.scoreboard.ScoreboardManager;
 public class Main extends JavaPlugin implements Listener {
 
 	public Main main = this;
+
 	public Server server = Bukkit.getServer();
+
 	public ScoreboardManager score = Bukkit.getScoreboardManager();
+
 	public FileConfiguration cf = getConfig();
+
 	public PluginManager pm = Bukkit.getPluginManager();
+
 	public BukkitScheduler sh = Bukkit.getScheduler();
+
 	public CommandSender send = Bukkit.getConsoleSender();
 
-	public void onLoad() {
+	public boolean onCommand(CommandSender sender, Command command, String label,
+		String[] args) {
 
-	}
-	public void onEnable() {
-		pm.registerEvents(new Eventos(), this);
-		
-		
-	}
-	
-	public void reload() {
-		onDisable();
-		onLoad();
-		onEnable();
-	}
-	public void reloadMelhor() {
-		pm.disablePlugin(this);
-		onLoad();
-		pm.enablePlugin(this);
-	}
-
-	public void onDisable() {
-		HandlerList.unregisterAll();
-	}
-
-	public List<String> onTabComplete(CommandSender sender, Command command,
-			String alias, String[] args) {
-		return null;
-	}
-
-	public boolean onCommand(CommandSender sender, Command command,
-			String label, String[] args) {
 		if (!(sender instanceof Player)) {
 			sender.sendMessage("§cApenas para players!");
 			return true;
@@ -65,7 +44,42 @@ public class Main extends JavaPlugin implements Listener {
 			reloadMelhor();
 			p.sendMessage("§aConfiguração recarregada!");
 		}
-		
+
 		return true;
+	}
+
+	public void onDisable() {
+
+		HandlerList.unregisterAll();
+	}
+
+	public void onEnable() {
+
+		pm.registerEvents(new Eventos(), this);
+
+	}
+
+	public void onLoad() {
+
+	}
+
+	public List<String> onTabComplete(CommandSender sender, Command command,
+		String alias, String[] args) {
+
+		return null;
+	}
+
+	public void reload() {
+
+		onDisable();
+		onLoad();
+		onEnable();
+	}
+
+	public void reloadMelhor() {
+
+		pm.disablePlugin(this);
+		onLoad();
+		pm.enablePlugin(this);
 	}
 }

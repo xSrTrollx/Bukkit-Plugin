@@ -1,3 +1,4 @@
+
 package me.eduard.kitpvp;
 
 import org.bukkit.Bukkit;
@@ -17,37 +18,45 @@ import java.util.List;
 public class Main extends JavaPlugin implements Listener {
 
 	public Main main = this;
+
 	public ScoreboardManager score = Bukkit.getScoreboardManager();
+
 	public FileConfiguration cf = getConfig();
+
 	public PluginManager pm = Bukkit.getPluginManager();
+
 	public BukkitScheduler sh = Bukkit.getScheduler();
+
 	public CommandSender send = Bukkit.getConsoleSender();
 
-	public void onLoad() {
+	public boolean onCommand(CommandSender sender, Command command, String label,
+		String[] args) {
 
-	}
-	public void onEnable() {
-		
-	}
-	
-	public void onDisable() {
-		HandlerList.unregisterAll();
-	}
-
-	public List<String> onTabComplete(CommandSender sender, Command command,
-			String alias, String[] args) {
-		return null;
-	}
-
-	public boolean onCommand(CommandSender sender, Command command,
-			String label, String[] args) {
 		if (!(sender instanceof Player)) {
 			sender.sendMessage("§cApenas para players!");
 			return true;
 		}
-//		Player p = (Player) sender;
-		
-		
+		// Player p = (Player) sender;
+
 		return true;
+	}
+
+	public void onDisable() {
+
+		HandlerList.unregisterAll();
+	}
+
+	public void onEnable() {
+
+	}
+
+	public void onLoad() {
+
+	}
+
+	public List<String> onTabComplete(CommandSender sender, Command command,
+		String alias, String[] args) {
+
+		return null;
 	}
 }

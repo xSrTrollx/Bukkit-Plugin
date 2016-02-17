@@ -1,8 +1,7 @@
+
 package me.eduard.kitpvp;
 
-
-public enum KitType
-{
-	ARCHER , STOMPER , ENDERMAGE,CAMEL,VIPER
+public enum KitType {
+		ARCHER, STOMPER, ENDERMAGE, CAMEL, VIPER
 
 }

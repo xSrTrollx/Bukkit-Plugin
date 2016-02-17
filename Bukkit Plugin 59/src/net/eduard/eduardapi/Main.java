@@ -10,8 +10,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.scheduler.BukkitScheduler;
 import org.bukkit.scoreboard.ScoreboardManager;
 
-public class Main extends JavaPlugin
-{
+public class Main extends JavaPlugin {
 
 	public static Main instance;
 
@@ -28,9 +27,9 @@ public class Main extends JavaPlugin
 	public void onEnable() {
 
 		Main.instance = this;
-		Main.config = this.getConfig();
+		Main.config = getConfig();
 
-		if ( Bukkit.getPluginManager() == null ) {
+		if (Bukkit.getPluginManager() == null) {
 			new BukkitRunnable() {
 
 				public void run() {
@@ -41,14 +40,14 @@ public class Main extends JavaPlugin
 					Main.console = Bukkit.getConsoleSender();
 				}
 
-			}.runTask( this );
+			}.runTask(this);
 		} else {
 			Main.plugin = Bukkit.getPluginManager();
 			Main.scheduler = Bukkit.getScheduler();
 			Main.scoreboard = Bukkit.getScoreboardManager();
 			Main.console = Bukkit.getConsoleSender();
 		}
-		
+
 	}
 
 }

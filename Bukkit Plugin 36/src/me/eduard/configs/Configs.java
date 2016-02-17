@@ -1,3 +1,4 @@
+
 package me.eduard.configs;
 
 import java.io.File;
@@ -13,37 +14,38 @@ public class Configs {
 	private File file;
 
 	private FileConfiguration config;
-	
+
 	private JavaPlugin plugin;
 
-	public Configs(JavaPlugin plugin,String name) {
+	public Configs(JavaPlugin plugin, String name) {
 		this.plugin = plugin;
 		file = new File(plugin.getDataFolder(), name);
 		reloadConfig();
 	}
-	public File getFile() {
-		return file;
-	}
 
 	public FileConfiguration getConfig() {
+
 		return config;
 	}
 
+	public File getFile() {
+
+		return file;
+	}
+
 	public void reloadConfig() {
+
 		config = YamlConfiguration.loadConfiguration(file);
 		InputStream imputStream = plugin.getResource(file.getName());
 		if (imputStream != null) {
-			YamlConfiguration imputConfig = YamlConfiguration
-					.loadConfiguration(imputStream);
+			YamlConfiguration imputConfig =
+				YamlConfiguration.loadConfiguration(imputStream);
 			getConfig().setDefaults(imputConfig);
 		}
 	}
 
-	public void saveDefaultConfig() {
-		plugin.saveResource(file.getName(), true);
-	}
-
 	public void saveConfig() {
+
 		try {
 			getConfig().save(file);
 		} catch (IOException ex) {
@@ -51,8 +53,14 @@ public class Configs {
 	}
 
 	public void saveDefault() {
+
 		getConfig().options().copyDefaults(true);
 		saveConfig();
+	}
+
+	public void saveDefaultConfig() {
+
+		plugin.saveResource(file.getName(), true);
 	}
 
 }

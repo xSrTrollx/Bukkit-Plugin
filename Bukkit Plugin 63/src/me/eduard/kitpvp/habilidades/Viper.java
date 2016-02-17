@@ -14,20 +14,20 @@ import org.bukkit.potion.PotionEffectType;
 
 import java.util.Random;
 
-public class Viper extends KitPvP implements Listener
-{
+public class Viper extends KitPvP implements Listener {
 
 	@EventHandler
-	public void onEntityDamageByEntityEvent( EntityDamageByEntityEvent e ) {
+	public void onEntityDamageByEntityEvent(EntityDamageByEntityEvent e) {
 
-		if ( e.getDamager() instanceof Player ) {
-			Player p = ( Player ) e.getDamager();
-			if ( hasKit( p , KitType.VIPER ) ) {
+		if (e.getDamager() instanceof Player) {
+			Player p = (Player) e.getDamager();
+			if (hasKit(p, KitType.VIPER)) {
 				double chance = new Random().nextDouble();
-				if ( chance <= 0.25 ) {
-					if ( e.getEntity() instanceof LivingEntity ) {
-						LivingEntity c = ( LivingEntity ) e.getEntity();
-						c.addPotionEffect( new PotionEffect( PotionEffectType.POISON , 20 * 5 , 0 ) );
+				if (chance <= 0.25) {
+					if (e.getEntity() instanceof LivingEntity) {
+						LivingEntity c = (LivingEntity) e.getEntity();
+						c.addPotionEffect(
+							new PotionEffect(PotionEffectType.POISON, 20 * 5, 0));
 
 					}
 				}

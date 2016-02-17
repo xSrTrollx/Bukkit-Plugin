@@ -13,17 +13,17 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class Camel extends KitPvP implements Listener
-{
+public class Camel extends KitPvP implements Listener {
 
 	@EventHandler
-	public void CamelEvent( PlayerMoveEvent e ) {
+	public void CamelEvent(PlayerMoveEvent e) {
 
 		Player p = e.getPlayer();
-		if ( hasKit( p , KitType.CAMEL ) ) {
-			if ( e.getTo().getBlock().getRelative( BlockFace.DOWN ).getType() == Material.SAND ) {
-
-				p.addPotionEffect( new PotionEffect( PotionEffectType.SPEED , 20 * 5 , 1 ) , true );
+		if (hasKit(p, KitType.CAMEL)) {
+			if (e.getTo().getBlock().getRelative(BlockFace.DOWN)
+				.getType() == Material.SAND) {
+				p.addPotionEffect(
+					new PotionEffect(PotionEffectType.SPEED, 20 * 5, 1), true);
 			}
 		}
 	}

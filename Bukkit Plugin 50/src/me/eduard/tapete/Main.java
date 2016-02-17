@@ -1,3 +1,4 @@
+
 package me.eduard.tapete;
 
 import org.bukkit.Bukkit;
@@ -16,36 +17,46 @@ import java.util.List;
 public class Main extends JavaPlugin implements Listener {
 
 	public static Main m;
+
 	public static FileConfiguration cf;
+
 	public static ScoreboardManager sc = Bukkit.getScoreboardManager();
+
 	public static PluginManager pm = Bukkit.getPluginManager();
+
 	public static BukkitScheduler sh = Bukkit.getScheduler();
+
 	public static CommandSender send = Bukkit.getConsoleSender();
 
-	public void onLoad() {
-		m = this;
-		cf = getConfig();
-	}
-	public void onEnable() {
-	}
-	
-	public void onDisable() {
-	}
+	public boolean onCommand(CommandSender sender, Command command, String label,
+		String[] args) {
 
-	public List<String> onTabComplete(CommandSender sender, Command command,
-			String alias, String[] args) {
-		return null;
-	}
-
-	public boolean onCommand(CommandSender sender, Command command,
-			String label, String[] args) {
 		if (!(sender instanceof Player)) {
 			sender.sendMessage("§cApenas para players!");
 			return true;
 		}
-//		Player p = (Player) sender;
-		
-		
+		// Player p = (Player) sender;
+
 		return true;
+	}
+
+	public void onDisable() {
+
+	}
+
+	public void onEnable() {
+
+	}
+
+	public void onLoad() {
+
+		m = this;
+		cf = getConfig();
+	}
+
+	public List<String> onTabComplete(CommandSender sender, Command command,
+		String alias, String[] args) {
+
+		return null;
 	}
 }

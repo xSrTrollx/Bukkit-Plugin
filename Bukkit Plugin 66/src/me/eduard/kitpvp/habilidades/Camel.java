@@ -13,18 +13,25 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-public class Camel implements Listener
-{
+public class Camel implements Listener {
 
 	@EventHandler
-	public void CamelEvent( PlayerMoveEvent e ) {
+	public void CamelEvent(PlayerMoveEvent e) {
 
 		Player p = e.getPlayer();
-		if ( Kit.hasKit( p , KitType.CAMEL ) ) {
-			if ( e.getTo().getBlock().getRelative( BlockFace.DOWN ).getType() == Material.SAND ) {
-
-				// Atere a força lembrando 0 = level 1 e 1 = level 2
-				p.addPotionEffect( new PotionEffect( PotionEffectType.SPEED , 20 * 5 , 1 ) , true );
+		if (Kit.hasKit(p, KitType.CAMEL)) {
+			if (e.getTo().getBlock().getRelative(BlockFace.DOWN)
+				.getType() == Material.SAND) {
+				// força
+				// lembrando
+				// 0 =
+				// level
+				// 1 e 1
+				// =
+				// level
+				// 2
+				p.addPotionEffect(
+					new PotionEffect(PotionEffectType.SPEED, 20 * 5, 1), true);
 			}
 		}
 	}

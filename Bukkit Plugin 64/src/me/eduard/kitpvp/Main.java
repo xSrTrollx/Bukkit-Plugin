@@ -1,3 +1,4 @@
+
 package me.eduard.kitpvp;
 
 import me.eduard.kitpvp.habilidades.Camel;
@@ -16,21 +17,29 @@ import org.bukkit.scoreboard.ScoreboardManager;
 public class Main extends JavaPlugin implements Listener {
 
 	public static Main m;
+
 	public static FileConfiguration cf;
+
 	public static ScoreboardManager sc = Bukkit.getScoreboardManager();
+
 	public static PluginManager pm = Bukkit.getPluginManager();
+
 	public static BukkitScheduler sh = Bukkit.getScheduler();
+
 	public static CommandSender send = Bukkit.getConsoleSender();
 
+	public void onEnable() {
+
+		pm.registerEvents(new KitSelector(), this);
+		pm.registerEvents(new Stomper(), this);
+		pm.registerEvents(new Camel(), this);
+		pm.registerEvents(new Viper(), this);
+	}
+
 	public void onLoad() {
+
 		m = this;
 		cf = getConfig();
-	}
-	public void onEnable() {
-		pm.registerEvents( new KitSelector() , this );
-		pm.registerEvents( new Stomper() , this );
-		pm.registerEvents( new Camel() , this );
-		pm.registerEvents( new Viper() , this );
 	}
 
 }

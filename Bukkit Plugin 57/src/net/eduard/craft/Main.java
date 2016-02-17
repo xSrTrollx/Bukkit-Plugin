@@ -16,8 +16,7 @@ import org.bukkit.scoreboard.ScoreboardManager;
 
 import java.util.Arrays;
 
-public class Main extends JavaPlugin
-{
+public class Main extends JavaPlugin {
 
 	public static Main instance;
 
@@ -34,9 +33,9 @@ public class Main extends JavaPlugin
 	public void onEnable() {
 
 		Main.instance = this;
-		Main.config = this.getConfig();
+		Main.config = getConfig();
 
-		if ( Bukkit.getPluginManager() == null ) {
+		if (Bukkit.getPluginManager() == null) {
 			new BukkitRunnable() {
 
 				public void run() {
@@ -47,24 +46,24 @@ public class Main extends JavaPlugin
 					Main.console = Bukkit.getConsoleSender();
 				}
 
-			}.runTask( this );
+			}.runTask(this);
 		} else {
 			Main.plugin = Bukkit.getPluginManager();
 			Main.scheduler = Bukkit.getScheduler();
 			Main.scoreboard = Bukkit.getScoreboardManager();
 			Main.console = Bukkit.getConsoleSender();
 		}
-		ItemStack item = new ItemStack( Material.GOLDEN_APPLE , 1 , ( short ) 1 );
+		ItemStack item = new ItemStack(Material.GOLDEN_APPLE, 1, (short) 1);
 		ItemMeta meta = item.getItemMeta();
-		meta.setDisplayName( "§6Mega maça dourada!" );
-		meta.setLore( Arrays.asList( "§cMaça capirotão!" ) );
-		item.setItemMeta( meta );
-		ShapelessRecipe craft = new ShapelessRecipe( item );
+		meta.setDisplayName("§6Mega maça dourada!");
+		meta.setLore(Arrays.asList("§cMaça capirotão!"));
+		item.setItemMeta(meta);
+		ShapelessRecipe craft = new ShapelessRecipe(item);
 
-		craft.addIngredient( Material.APPLE );
-		craft.addIngredient( Material.GOLD_BLOCK );
+		craft.addIngredient(Material.APPLE);
+		craft.addIngredient(Material.GOLD_BLOCK);
 
-		Bukkit.addRecipe( craft );
+		Bukkit.addRecipe(craft);
 
 	}
 
